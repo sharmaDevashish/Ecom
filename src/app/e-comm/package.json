@@ -1,0 +1,14 @@
+{
+  "name": "@yokogawa-iiot/e-comm",
+  "version": "0.0.7",
+  "description": "this module contains e-comm widgets and pages developed by isobar team",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "YOKOGAWA",
+  "license": "© Yokogawa Electric Corporation",
+  "dependencies": {
+   
+  }
+}

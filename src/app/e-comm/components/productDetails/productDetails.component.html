@@ -1,0 +1,76 @@
+<div class="proDetails">
+    <div class="row"> 
+        <h2>PRODUCT DETAILS</h2>
+        <h3>{{mockDetails.Name}}</h3>
+        <h4>Status:{{mockDetails.ProductFeature[0].Status}}</h4>
+    </div>
+    <div class="row">
+        <div class="header">
+            <h2 class="h2">Product Information</h2>
+        </div>
+            <div class="column" style="background-color:#eee;">
+              <h3>{{mockDetails.Description}}</h3>
+              <h3>SKU : {{mockDetails.SKU}}</h3>
+              <h3>Allow Feature Changes in Subscriptions: {{mockDetails.AllowFeatureChanges}}</h3>
+              <h3>Category : {{mockDetails.Category}}</h3>
+              <h3>Yokogawa's MS-Code : {{mockDetails.YokogawaMSCode}}</h3>
+              <h3>Manufacturer's Product Code : {{mockDetails.ManufacturersProductCode}}</h3>
+              <h3>Product Description (Japanese) : {{mockDetails.DescriptionJapanese}}</h3>
+              <h3>Product Description (English) : {{mockDetails.DescriptionEnglish}}</h3>
+              <h3>Last Modified Date : {{mockDetails.LastUpdatedDate | date: 'dd/MM/yyyy'}}</h3>
+            </div>
+    </div>
+    <div class="row" style="margin-top:10px">
+        <div class="header">
+            <h2 class="h2">Rate Plans</h2>
+        </div>
+        <div>
+            <ul>
+                <li><a (click)="USD = true; EUR = false">USD</a></li>
+                <li><a (click)="EUR = true; USD = false">EUR</a></li>
+            </ul>
+        </div>
+            <table id="t01">
+                    <tr>
+                      <th width = "30%">One-Time Charges</th>
+                      <th width = "30%">Recurring Charges/Period</th> 
+                      <th width = "30%">Usage Charges/UOM</th>
+                    </tr>
+            </table>
+            <table *ngIf = "USD == true">
+                    <tr width="100%"><td colspan="3">{{mockDetails.Name}} (Monthly)</td></tr>
+                    <tr>
+                      <td width = "30%">{{mockDetails.ProductRatePlan[0].ProductRatePlanCharge[2].name}}<br>{{mockDetails.ProductRatePlan[0].ProductRatePlanCharge[2].pricing[0].price}} {{mockDetails.ProductRatePlan[0].ProductRatePlanCharge[2].pricing[0].currency}}</td>
+                      <td width = "30%">{{mockDetails.ProductRatePlan[0].ProductRatePlanCharge[1].name}}<br>{{mockDetails.ProductRatePlan[0].ProductRatePlanCharge[1].pricing[0].price}} {{mockDetails.ProductRatePlan[0].ProductRatePlanCharge[1].pricing[0].currency}}</td>
+                      <td width = "30%">{{mockDetails.ProductRatePlan[0].ProductRatePlanCharge[0].name}}<br>{{mockDetails.ProductRatePlan[0].ProductRatePlanCharge[0].pricing[0].price}} {{mockDetails.ProductRatePlan[0].ProductRatePlanCharge[0].pricing[0].currency}}</td>
+                    </tr>
+                  </table>
+                  <table *ngIf = "EUR == true">
+                        <tr width="100%"><td colspan="3">{{mockDetails.Name}} (Monthly)</td></tr>
+                        <tr>
+                          <td width = "30%">{{mockDetails.ProductRatePlan[0].ProductRatePlanCharge[2].name}}<br>{{mockDetails.ProductRatePlan[0].ProductRatePlanCharge[2].pricing[1].price}} {{mockDetails.ProductRatePlan[0].ProductRatePlanCharge[2].pricing[0].currency}}</td>
+                          <td width = "30%">{{mockDetails.ProductRatePlan[0].ProductRatePlanCharge[1].name}}<br>{{mockDetails.ProductRatePlan[0].ProductRatePlanCharge[1].pricing[1].price}} {{mockDetails.ProductRatePlan[0].ProductRatePlanCharge[1].pricing[0].currency}}</td>
+                          <td width = "30%">{{mockDetails.ProductRatePlan[0].ProductRatePlanCharge[0].name}}<br>{{mockDetails.ProductRatePlan[0].ProductRatePlanCharge[0].pricing[1].price}} {{mockDetails.ProductRatePlan[0].ProductRatePlanCharge[0].pricing[0].currency}}</td>
+                        </tr>
+                      </table>
+    </div>
+    <div class="row" style="margin-top:10px">
+            <div class="header">
+                <h2 class="h2">Product Features</h2>
+            </div>
+            <table id="t01">
+                    <tr>
+                      <th>Active</th>
+                      <th>Feature Name</th> 
+                      <th>Feature Code</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td>{{mockDetails.ProductFeature[0].Status}}</td>
+                        <td>{{mockDetails.ProductFeature[0].Name}}</td>
+                        <td>{{mockDetails.ProductFeature[0].Code}}</td>
+                        <td>{{mockDetails.ProductFeature[0].Description}}</td>
+                    </tr>
+                  </table>
+    </div>
+</div>
