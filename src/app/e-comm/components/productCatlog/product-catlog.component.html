@@ -1,0 +1,32 @@
+<div class="proCatlog">
+    <div class="header">
+      <h2 class="h2">PRODUCTS</h2>
+    </div>
+    <div>
+        <button class="btn btn-info" (click)="changeView()"><i class="fa fa-bars"></i> ListView/GridView</button> 
+    </div>
+
+    <div class="col-xs-12 container">
+    <div class="row">
+            <div *ngFor ="let product of mockProducts" (click)="route(product.Id)" class=" col-xs-6 column">
+              <h2>Name : {{product.Name}}</h2>
+              <h3>SKU : {{product.SKU}}</h3>
+              <h3>Category : {{product.Category}}</h3>
+              <h3>Description : {{product.Description}}</h3>
+            </div>
+            
+    </div>
+    
+  </div>
+</div>
+
+<app-pagination
+  [count]="countVar"
+  [page]="pageVar"
+  [perPage]="perPageVar"
+  [pagesToShow]="5"
+  [loading]="loadingVar"
+  (goPrev)="prevPage()"
+  (goNext)="nextPage($event)"
+  (onPage)="goToPage($event)">
+</app-pagination>
